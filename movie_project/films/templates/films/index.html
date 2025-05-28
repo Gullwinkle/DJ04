@@ -1,0 +1,22 @@
+{% extends 'films/base.html' %}
+
+{% block title %}Фильмы{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h1 class="mb-4">Фильмы</h1>
+  {% if films %}
+    {% for title in films %}
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <h2 class="card-title text-center text-primary mb-3">{{ title.title }}</h2>
+          <h5 class="card-subtitle mb-3 text-muted text-center fst-italic">{{ title.description }}</h5>
+          <p class="card-text"><strong>Мой отзыв:</strong> {{ title.feedback }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>Фильмов нет</p>
+  {% endif %}
+</div>
+{% endblock %}
